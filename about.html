@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiSpace - Home Services</title>
+    <link rel="stylesheet" href="/css/styles2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">OPTISPACE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html" class="active">ABOUT US</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="signup.html">SIGN UP</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="reviews.html">REVIEWS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="welcome-section">
+        <div class="about-container">
+            <!-- Image Section -->
+            <div class="image-container">
+                <img src="/assets/home_services_5.webp" alt="OptiSpace Services Illustration">
+            </div>
+            
+            <!-- Text Section -->
+            <div class="text-container">
+                <h1>Welcome to OptiSpace</h1>
+                <p class="subheading"><em>Your one-stop solution for all your home service needs!</em></p>
+                <p>At OptiSpace, we are committed to making your living spaces comfortable, functional, and beautiful. Whether it’s routine maintenance, urgent repairs, or a complete home makeover, our team of skilled professionals is here to deliver top-notch services tailored to your needs.</p>
+
+                <ul class="services-list">
+                    <li><strong>Plumbing:</strong> From fixing leaks to installing new systems, we handle it all.</li>
+                    <li><strong>Electrical Work:</strong> Safe and efficient solutions for all your electrical needs.</li>
+                    <li><strong>Cleaning & Maintenance:</strong> Keeping your home spotless and well-maintained.</li>
+                    <li><strong>Installations:</strong> Expert setup of appliances, fixtures, and more.</li>
+                    <li><strong>Renovations & Repairs:</strong> Transforming your space into the home of your dreams.</li>
+                </ul>
+                
+                <p>Let OptiSpace simplify your home maintenance journey so you can focus on what truly matters — enjoying your space.</p>
+                <p class="cta">Your home, our responsibility.</p>
+                <br><br>
+                <p>Ready to experience hassle-free home services? Contact us today!</p>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="social-media">
+                <p>Follow us:
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a></p>
+                <p>&copy; 2024 OptiSpace Co. | All Rights Reserved</p>
+            </div> 
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling effect for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+    </script>
+
+</body>
+</html>

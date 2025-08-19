@@ -1,0 +1,249 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+
+/* Header Section */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+header nav ul li a.active, 
+header nav ul li a:hover {
+    color: #45a049;
+}
+
+/* Navigation Bar */
+header {
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #666;
+}
+
+.btn-book {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-book:hover {
+    background-color: #45a049;
+}
+/* End Navigation Bar */
+
+main {
+    padding: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+/* Main Container */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section */
+.contact-text {
+    flex: 1;
+    max-width: 45%;
+    padding-right: 30px;
+}
+
+.contact-text h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.contact-text p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Right Section */
+.contact-form {
+    flex: 1;
+    max-width: 50%;
+    background: #f9f9f9;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Form Styling */
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #78a83e;
+    box-shadow: 0 0 5px rgba(120, 168, 62, 0.3);
+}
+
+.btn-submit {
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #5b7e2c;
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #f0f0e9;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container p {
+    margin: 10px 0;
+    color: #333;
+}
+
+.social-media a {
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: #7d8f6f;
+}

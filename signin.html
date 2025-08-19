@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiSpace - Sign In</title>
+    <link rel="stylesheet" href="/css/styles5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        const mysql = require('mysql2');
+        
+        const db = mysql.createConnection({
+          host: 'localhost',
+          user: 'root',
+          password: 'shrutika21',  // Use the updated password here
+          database: 'optispace',      // Make sure this matches your database
+          port: 3900,                // Ensure MySQL is running on the default port
+        });
+        
+        db.connect((err) => {
+          if (err) {
+            console.error('Database connection failed:', err.code);
+            return;
+          }
+          console.log('Connected to MySQL!');
+        });
+        
+    </script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">OPTISPACE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="signup.html" class="active">SIGN UP</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="reviews.html">REVIEWS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sign In Form -->
+    <main>
+        <div class="signin-container">
+            <h2 class="signin-heading">Log In</h2>
+
+            <p class="welcome-text"><em>Welcome back — log in to manage your services and keep your home in perfect shape!</em></p>
+
+            <form id="signin-form" action="http://localhost:3900" method="post">
+                <label for="email">E-MAIL</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <div class="show-password">
+                    <input type="checkbox" id="togglePassword">
+                    <label for="togglePassword">Show Password</label>
+                </div>
+                <br>
+                <div class="options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">REMEMBER ME</label>
+                    </div>
+                    <a href="#" class="forgot-password">FORGOT PASSWORD</a>
+                </div>
+
+                <button type="submit" class="btn-login">LOG IN</button>
+            </form>
+            <form action="signup.html">
+                <p class="signup-text">DON'T HAVE AN ACCOUNT ? &nbsp;
+                    <button class="btn-signup">SIGN UP</button>
+                </p>
+            </form>
+            
+        </div>
+    </main>
+    <!-- Footer -->
+ <footer>
+    <div class="footer-container">
+        <div class="social-media">
+            <p>Follow us:
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a></p>
+            <p>&copy; 2024 OptiSpace Co. | All Rights Reserved</p>
+        </div> 
+    </div>
+</footer>
+    <script>
+    document.getElementById("signin-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email && password) {
+        alert(`Welcome back, ${email.split('@')[0]}!`);
+    } else {
+        alert("Please fill in both fields.");
+    }
+    });
+
+    document.getElementById("togglePassword").addEventListener("change", function () {
+    const passwordField = document.getElementById("password");
+    if (this.checked) {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
+    }
+    });
+
+    </script>
+</body>
+</html>

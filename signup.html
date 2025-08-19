@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiSpace - Sign Up</title>
+    <link rel="stylesheet" href="/css/styles4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <script>
+const mysql = require('mysql2');
+
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'shrutika21',  // Use the updated password here
+  database: 'optispace',      // Make sure this matches your database
+  port: 3100,                // Ensure MySQL is running on the default port
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error('Database connection failed:', err.code);
+    return;
+  }
+  console.log('Connected to MySQL!');
+});
+
+    </script> -->
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">OPTISPACE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="signup.html" class="active">SIGN UP</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="reviews.html">REVIEWS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sign-Up Form -->
+    <section class="signup-section">
+        <h1>Sign Up</h1>
+        <p class="welcome-text"><em>Join OptiSpace today for seamless access to trusted home services!</em></p>
+
+        <form id="signupForm" action="http://localhost:3900/signup" method="post">
+            <div class="form-row">
+                <input type="text" id="firstName" name="firstName"  placeholder="First Name" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+            </div>
+            <div class="form-row">
+                <input type="email" id="email" name="email" placeholder="E-Mail" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone No." required>
+            </div>
+            <div class="form-row">
+                <input type="text" id="address1" name="address1" placeholder="Address Line 1" required>
+                <input type="text" id="address2" name="address2" placeholder="Address Line 2 (Optional)">
+            </div>
+            <div class="form-row">
+                <input type="text" id="state" name="state" placeholder="State" required>
+                <input type="text" id="city" name="city" placeholder="City" required>
+                <input type="text" id="pincode" name="pincode" placeholder="Pincode" required>
+            </div>
+            <div class="form-row">
+                <input type="password" id="password" name="password" placeholder="Enter Your Password" required>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter Your Password" required>
+            </div><br><br>
+            <div>
+                <input type="checkbox" id="terms" required> I agree to the terms of service and privacy policy.
+            </div><br>
+            <button type="submit" class="btn-login">SIGN UP</button>
+        </form>
+        <form action="signin.html"><br>
+            <p>Already have an account? <button class="btn-signup">LOG IN</button></p>
+        </form>
+        
+    </section>
+
+
+ <!-- Footer -->
+ <footer>
+    <div class="footer-container">
+        <div class="social-media">
+            <p>Follow us:
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a></p>
+            <p>&copy; 2024 OptiSpace Co. | All Rights Reserved</p>
+        </div> 
+    </div>
+</footer>
+
+    <!-- <script src="/OptiSpace/public/script.js"></script> -->
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+    
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const address1= document.getElementById("address1").value;
+        const address2= document.getElementById("address2").value;
+        const state= document.getElementById("state").value;
+        const city= document.getElementById("city").value;
+        const pincode= document.getElementById("pincode").value;
+        const password= document.getElementById("password").value;
+        const confirmPassword= document.getElementById("confirmPassword").value;
+
+          try {
+            const response = await fetch('http://localhost:3900/signup', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ firstName,lastName,email,phone,address1,address2,state,city, pincode,password }),
+            });
+    
+            const data = await response.json();
+            if (response.ok) {
+              alert('Signup successful!');
+              console.log(data);
+            } else {
+              alert('Signup failed: ' + data.message);
+            }
+          } 
+          catch (err) {
+            alert(`An error occurred: ${err.message}`);
+
+           // console.error('Error:', err);
+            //alert('An error occurred');
+          }
+        });
+      </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/css/styles6.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <body>
+        <!-- Navigation Bar -->
+        <header>
+            <div class="container">
+                <div class="logo">OPTISPACE</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="about.html">ABOUT US</a></li>
+                        <li><a href="services.html">SERVICES</a></li>
+                        <li><a href="signup.html">SIGN UP</a></li>
+                        <li><a href="contact.html" class="active">CONTACT US</a></li>
+                        <li><a href="reviews.html">REVIEWS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+    
+    <main>
+        <section class="contact-section">
+                <div class="contact-container">
+                    <!-- Left Section - Text -->
+                    <div class="contact-text">
+                        <h1>Contact Us</h1>
+                        <p>Have questions or need assistance? Reach out to us today!</p>
+                        <p>Our team is here to help with all your home service needs.</p>
+                        <p>Call, email, or fill out the form below, and we'll get back to you ASAP!</p>
+        
+                        <p><strong>Send us an email:</strong></p>
+                        <p>support@optispace.com</p>
+                        <p>feedback@optispace.com</p>
+        
+                       <p><strong>Call us:</strong></p>
+                       <p>+91 98708 97763</p>
+                    </div>
+            
+                    <!-- Right Section - Contact Form -->
+                    <div class="contact-form" id="contact-form">
+                        <h2>Get in Touch</h2>
+                        <form >
+                            <!-- Name -->
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                            
+                            <!-- Email -->
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                            
+                            <!-- Subject -->
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            
+                            <!-- Message -->
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn-submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            
+        </section>
+    </main>
+      <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="social-media">
+                <p>Follow us:
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a></p>
+                <p>&copy; 2024 OptiSpace Co. | All Rights Reserved</p>
+            </div> 
+        </div>
+    </footer>
+    <script>
+        // JavaScript for showing an alert after form submission
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      
+      // Show an alert message
+      alert("Your complaint has been submitted successfully. Thank you!");
+      
+      // Optionally reset the form fields
+      document.getElementById("contact-form").reset();
+    });
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

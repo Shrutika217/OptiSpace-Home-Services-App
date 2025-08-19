@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiSpace Services</title>
+    <link rel="stylesheet" href="/css/styles3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <!-- Header -->
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">OPTISPACE</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT US</a></li>
+                    <li><a href="services.html" class="active">SERVICES</a></li>
+                    <li><a href="signup.html">SIGN UP</a></li>
+                    <li><a href="contact.html">CONTACT US</a></li>
+                    <li><a href="reviews.html">REVIEWS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+            <div class="service-item" id="plumbing">
+                <img src="/assets/plumbing2.png" alt="Plumbing" width="500px">
+                <h3>Plumbing</h3>
+                <p><strong>Starting at Rs. 100 only</strong></p>
+                <p>From fixing leaky faucets to installing new pipelines, our plumbing experts ensure a hassle-free and efficient experience.</p>
+                <button class="add-to-cart-btn" onclick="attemptAddToCart('Plumbing')">Add to Cart</button>
+            </div>
+            <div class="service-item" id="electricals">
+                <img src="/assets/elect.jpg" alt="Electricals" width="500px">
+                <h3>Electricals</h3>
+                <p><strong>Starting at Rs. 250 only</strong></p>
+                <p>Ensure not only safety but also efficiency with our expert electrical services, from fixing faults to installing new systems.</p>
+                <button class="add-to-cart-btn" onclick="attemptAddToCart('Electrical')">Add to Cart</button>
+            </div>
+            <div class="service-item" id="installation">
+                <img src="/assets/installations.jpg" alt="Installations" width="500px">
+                <h3>Installations</h3>
+                <p><strong>Starting at Rs. 300 only</strong></p>
+                <p>From appliances to fixtures, our installation services guarantee precision and care.</p>
+                <button class="add-to-cart-btn" onclick="attemptAddToCart('Installations')">Add to Cart</button>
+            </div>
+            </div>
+            <div class="service-item" id="maintenance">
+                <img src="/assets/cleaning2.webp" alt="Maintenance">
+                <h3>Maintenance</h3>
+                <p><strong>Starting at Rs. 500 only</strong></p>
+                <p>Keep your home in top shape with our reliable maintenance services, from routine check-ups to preventive care.</p>
+                <button class="add-to-cart-btn" onclick="attemptAddToCart('Maintenance')">Add to Cart</button>
+            </div>
+    </section>
+
+    <!-- Cart Button -->
+    <button class="cart-button" onclick="toggleCart()">
+        🛒
+        <span class="cart-counter" id="cart-counter">0</span>
+    </button>
+
+    <!-- Cart Section -->
+    <div id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items">
+            <li id="empty-cart">Your cart is empty</li>
+        </ul>
+    </div>
+
+ <!-- Footer -->
+ <footer>
+    <div class="footer-container">
+        <div class="social-media">
+            <p>Follow us:
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a></p>
+            <p>&copy; 2024 OptiSpace Co. | All Rights Reserved</p>
+        </div> 
+    </div>
+</footer>
+
+
+    <script>
+
+ 
+// Highlight Active Navigation Link
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    let currentSection = '';
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 60; // Adjust for header height
+        if (pageYOffset >= sectionTop) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').substring(1) === currentSection) {
+            link.classList.add('active');
+        }
+    });
+});
+        // JavaScript for Add/Remove Services from Cart
+        const cartItems = [];
+        const cartList = document.getElementById('cart-items');
+        const emptyCartMessage = document.getElementById('empty-cart');
+        const cartCounter = document.getElementById('cart-counter');
+        const cartSection = document.getElementById('cart');
+
+        function addToCart(service) {
+            cartItems.push(service);
+            updateCart();
+        }
+        let isSignedIn = false;
+
+        function attemptAddToCart(service) {
+            if (!isSignedIn) {
+                if (confirm("Please sign in to add items to the cart.")==true)
+        {
+          
+        }
+        else
+        {
+            alert("Access denied")
+        };
+                return;
+            }
+            addToCart(service);
+        }
+
+        // Function to add a service to the cart
+        function addToCart(service) {
+            cartItems.push(service);
+            updateCartCounter();
+            alert(`${service} has been added to your cart.`);
+        }
+
+        // Function to update cart counter
+        function updateCartCounter() {
+            cartCounter.textContent = cartItems.length;
+        }
+
+        // Simulated sign-in function
+        function signIn() {
+            isSignedIn = true;
+            alert("You are now signed in. You can add items to your cart.");
+        }
+
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            // Clear the cart display
+            cartList.innerHTML = '';
+
+            // If cart is empty, show empty message
+            if (cartItems.length === 0) {
+                cartList.appendChild(emptyCartMessage);
+            } else {
+                // Populate cart items with remove button
+                cartItems.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `${item} <button onclick="removeFromCart(${index})">Remove</button>`;
+                    cartList.appendChild(li);
+                });
+            }
+
+            // Update cart counter
+            cartCounter.textContent = cartItems.length;
+        }
+
+        function toggleCart() {
+            // Show/Hide the cart section
+            if (cartSection.style.display === 'none' || cartSection.style.display === '') {
+                cartSection.style.display = 'block';
+            } else {
+                cartSection.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

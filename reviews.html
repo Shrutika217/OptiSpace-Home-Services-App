@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reviews Page</title>
+  <link rel="stylesheet" href="/css/styles7.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+<header>
+    <div class="container">
+        <div class="logo">OPTISPACE</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li><a href="signup.html">SIGN UP</a></li>
+                <li><a href="contact.html">CONTACT US</a></li>
+                <li><a href="reviews.html">REVIEWS</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+  <div class="container2">
+    <h1>Write A Review</h1>
+    <br>
+
+    <!-- Review Form -->
+    <form id="reviewForm" class="review-form"><br>
+      <input type="text" id="name" placeholder="Your Name" required />
+      <textarea id="reviewText" placeholder="Write your review..." required></textarea>
+      <br>
+      <button type="submit">Submit Review</button>
+    </form>
+<br>
+    <!-- Reviews Section -->
+    <div id="reviewsSection" class="reviews-section">
+      <h1>Recent Reviews</h1>
+      <div id="reviewsList" class="reviews-list">
+        <!-- Reviews will be displayed here -->
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+        <div class="social-media">
+            <p>Follow us:
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a></p>
+            <p>&copy; 2024 OptiSpace Co. | All Rights Reserved</p>
+        </div> 
+    </div>
+</footer>
+
+  <script>
+    // Get references to DOM elements
+const reviewForm = document.getElementById('reviewForm');
+const reviewsList = document.getElementById('reviewsList');
+const nameInput = document.getElementById('name');
+const reviewTextInput = document.getElementById('reviewText');
+
+// Event listener for form submission
+reviewForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent page reload on form submit
+
+  // Get the name and review text
+  const name = nameInput.value.trim();
+  const reviewText = reviewTextInput.value.trim();
+
+  // Validation
+  if (name === '' || reviewText === '') {
+    alert('Please fill in both fields.');
+    return;
+  }
+
+  // Create a new review
+  const reviewDiv = document.createElement('div');
+  reviewDiv.classList.add('review');
+
+  // Add content to the review
+  const reviewerName = document.createElement('h3');
+  reviewerName.textContent = name;
+
+  const reviewMessage = document.createElement('p');
+  reviewMessage.textContent = reviewText;
+
+  // Append the content to the review
+  reviewDiv.appendChild(reviewerName);
+  reviewDiv.appendChild(reviewMessage);
+
+  // Append the review to the reviews list
+  reviewsList.appendChild(reviewDiv);
+
+  // Clear the input fields
+  nameInput.value = '';
+  reviewTextInput.value = '';
+});
+  </script>
+</body>
+</html>
